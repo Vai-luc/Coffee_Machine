@@ -1,4 +1,4 @@
-# Daily Brew — Coffeehouse Ordering Demo
+# Daily Brew — Coffeehouse Ordering 
 
 A polished Flask-based ordering experience built as an entry-level portfolio project. The app demonstrates a clean separation between backend APIs and a responsive frontend with live pricing, drink customization, order history, and resource tracking.
 
