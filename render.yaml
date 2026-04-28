@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: coffee-machine
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DATABASE_URL
+        fromDatabase:
+          name: coffee_machine_db
+          property: connectionString
+
+databases:
+  - name: coffee_machine_db
+    plan: free
+    ipAllowList: []

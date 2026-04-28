@@ -1,0 +1,91 @@
+2026-04-27 22:45:21,256 - WARNING -  * Debugger is active!
+2026-04-27 22:45:21,279 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:21,279 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:22,387 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:22,389 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:24,843 - WARNING -  * Debugger is active!
+2026-04-27 22:45:24,859 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:24,991 - WARNING -  * Debugger is active!
+2026-04-27 22:45:25,010 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:33,092 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:33,239 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:34,610 - WARNING -  * Debugger is active!
+2026-04-27 22:45:34,624 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:34,668 - WARNING -  * Debugger is active!
+2026-04-27 22:45:34,684 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:35,705 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:35,763 - INFO -  * Detected change in 'D:\\Projects\\Python\\Coffee_Machine\\app.py', reloading
+2026-04-27 22:45:37,274 - WARNING -  * Debugger is active!
+2026-04-27 22:45:37,283 - WARNING -  * Debugger is active!
+2026-04-27 22:45:37,294 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:45:37,298 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:46:44,440 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:44] "GET / HTTP/1.1" 200 -
+2026-04-27 22:46:45,612 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:45] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-27 22:46:45,626 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:45] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2026-04-27 22:46:45,640 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:45] "GET /static/js/animation.js HTTP/1.1" 200 -
+2026-04-27 22:46:45,720 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:45] "GET /menu HTTP/1.1" 200 -
+2026-04-27 22:46:45,780 - INFO - 127.0.0.1 - - [27/Apr/2026 22:46:45] "GET /session HTTP/1.1" 200 -
+2026-04-27 22:50:54,403 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-27 22:50:54,404 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-27 22:50:54,409 - INFO -  * Restarting with stat
+2026-04-27 22:50:55,323 - WARNING -  * Debugger is active!
+2026-04-27 22:50:55,338 - INFO -  * Debugger PIN: 117-293-837
+2026-04-27 22:51:40,134 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-27 22:51:40,135 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-27 22:51:40,140 - INFO -  * Restarting with stat
+2026-04-27 22:51:41,017 - WARNING -  * Debugger is active!
+2026-04-27 22:51:41,029 - INFO -  * Debugger PIN: 117-293-837
+2026-04-27 22:52:47,979 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:47] "GET / HTTP/1.1" 200 -
+2026-04-27 22:52:48,102 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:48] "GET /static/css/styles.css HTTP/1.1" 200 -
+2026-04-27 22:52:48,109 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:48] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-27 22:52:48,303 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:48] "[36mGET /static/js/animation.js HTTP/1.1[0m" 304 -
+2026-04-27 22:52:48,331 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:48] "GET /menu HTTP/1.1" 200 -
+2026-04-27 22:52:48,370 - INFO - 127.0.0.1 - - [27/Apr/2026 22:52:48] "GET /session HTTP/1.1" 200 -
+2026-04-27 22:53:47,973 - INFO - Order attempt: drink=cappuccino, size=grande, quantity=2, amount=10
+2026-04-27 22:53:47,979 - WARNING - Order failed: Insufficient resources for this order.
+2026-04-27 22:53:47,981 - INFO - 127.0.0.1 - - [27/Apr/2026 22:53:47] "[31m[1mPOST /order HTTP/1.1[0m" 400 -
+2026-04-27 22:55:14,771 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:14] "GET / HTTP/1.1" 200 -
+2026-04-27 22:55:14,922 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:14] "GET /static/css/styles.css HTTP/1.1" 200 -
+2026-04-27 22:55:14,925 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:14] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-27 22:55:14,950 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:14] "GET /static/js/animation.js HTTP/1.1" 200 -
+2026-04-27 22:55:15,143 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:15] "GET /menu HTTP/1.1" 200 -
+2026-04-27 22:55:15,220 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:15] "GET /session HTTP/1.1" 200 -
+2026-04-27 22:55:32,266 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:32] "GET /session HTTP/1.1" 200 -
+2026-04-27 22:55:33,312 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:33] "[31m[1mGET /order HTTP/1.1[0m" 405 -
+2026-04-27 22:55:37,315 - INFO - 127.0.0.1 - - [27/Apr/2026 22:55:37] "GET /session HTTP/1.1" 200 -
+2026-04-27 22:56:45,968 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-27 22:56:45,969 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-27 22:56:45,972 - INFO -  * Restarting with stat
+2026-04-27 22:56:46,940 - WARNING -  * Debugger is active!
+2026-04-27 22:56:46,956 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:58:37,237 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-27 22:58:37,237 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-27 22:58:37,240 - INFO -  * Restarting with stat
+2026-04-27 22:58:38,049 - WARNING -  * Debugger is active!
+2026-04-27 22:58:38,062 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 22:59:31,706 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:31] "GET / HTTP/1.1" 200 -
+2026-04-27 22:59:31,853 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:31] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2026-04-27 22:59:31,853 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-04-27 22:59:32,000 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:32] "[36mGET /static/js/animation.js HTTP/1.1[0m" 304 -
+2026-04-27 22:59:32,037 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:32] "GET /menu HTTP/1.1" 200 -
+2026-04-27 22:59:32,080 - INFO - 127.0.0.1 - - [27/Apr/2026 22:59:32] "GET /session HTTP/1.1" 200 -
+2026-04-27 23:00:16,937 - INFO - Order attempt: drink=espresso, size=tall, quantity=3, amount=7
+2026-04-27 23:00:16,938 - WARNING - Order failed: Insufficient resources for this order.
+2026-04-27 23:00:16,939 - INFO - 127.0.0.1 - - [27/Apr/2026 23:00:16] "[31m[1mPOST /order HTTP/1.1[0m" 400 -
+2026-04-27 23:00:34,400 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-27 23:00:34,401 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-27 23:00:34,405 - INFO -  * Restarting with stat
+2026-04-27 23:00:35,409 - WARNING -  * Debugger is active!
+2026-04-27 23:00:35,422 - INFO -  * Debugger PIN: 311-935-606
+2026-04-27 23:02:22,320 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:22] "GET / HTTP/1.1" 200 -
+2026-04-27 23:02:22,424 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:22] "GET /static/css/styles.css HTTP/1.1" 200 -
+2026-04-27 23:02:22,427 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:22] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-27 23:02:22,688 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:22] "GET /static/js/animation.js HTTP/1.1" 200 -
+2026-04-27 23:02:23,082 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:23] "GET /menu HTTP/1.1" 200 -
+2026-04-27 23:02:23,155 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-27 23:02:23,161 - INFO - 127.0.0.1 - - [27/Apr/2026 23:02:23] "GET /session HTTP/1.1" 200 -
