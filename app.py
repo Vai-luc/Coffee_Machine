@@ -11,17 +11,20 @@ logging.basicConfig(
 app = Flask(__name__, static_folder="static", template_folder="templates")
 menu = Menu()
 
+order_history = []
+total_spent = 0.0
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
 @app.route("/reset", methods=["POST"])
 def reset():
+    global order_history, total_spent
+    order_history = []
+    total_spent = 0.0
     order_controller.reset_machine_state()
     return jsonify({"status": "success", "message": "Machine reset"})
-
 
 @app.route("/menu")
 def get_menu():
@@ -30,11 +33,10 @@ def get_menu():
         "sizes": menu.sizes
     })
 
-
 @app.route("/order", methods=["POST"])
 def order():
+    global order_history, total_spent
     data = request.get_json(silent=True) or {}
-
     choice = data.get("drink")
     size = data.get("size", "tall")
     quantity = int(data.get("quantity", 1))
@@ -47,18 +49,25 @@ def order():
         quantity=quantity
     )
 
-    return jsonify(result)
+    if result.get("status") == "success":
+        order_history.append({
+            "drink": choice,
+            "size": size,
+            "quantity": quantity,
+            "amount": amount_paid
+        })
+        total_spent += amount_paid
 
+    return jsonify(result)
 
 @app.route("/session")
 def session_summary():
     return jsonify({
         "status": "success",
-        "orders": 0,
-        "total_spent": 0,
-        "recent_orders": []
+        "orders": len(order_history),
+        "total_spent": total_spent,
+        "recent_orders": order_history[-5:]
     })
-
 
 if __name__ == "__main__":
     app.run()
