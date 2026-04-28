@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Brew — Coffee Ordering</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero" role="banner">
+            <div class="brand-bar">
+                <span class="brand-mark">☕</span>
+                <div>
+                    <p class="eyebrow">Coffeehouse-inspired demo</p>
+                    <h1>Daily Brew</h1>
+                </div>
+            </div>
+            <p class="hero-copy">"Craft your perfect brew, select your size, and watch prices update live. The best coffee is the one you enjoy."</p>
+            <div class="hero-animation" aria-hidden="true">
+                <canvas id="sporographCanvas"></canvas>
+            </div>
+        </header>
+
+        <main class="layout-grid">
+            <section class="panel panel-menu" aria-labelledby="menu-heading">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Menu</p>
+                        <h2 id="menu-heading">Coffee lineup</h2>
+                    </div>
+                    <p class="mini-caption">Tap a drink to begin.</p>
+                </div>
+                <div id="menuList" class="menu-grid" role="list"></div>
+            </section>
+
+            <aside class="panel panel-order" aria-labelledby="order-heading">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Order</p>
+                        <h2 id="order-heading">Customize your cup</h2>
+                    </div>
+                </div>
+
+                <div class="order-slot" id="selectedPreview" aria-live="polite">
+                    <p class="meta-label">Selected drink</p>
+                    <div class="order-card empty" id="selectedDrinkCard">Choose a menu item</div>
+                </div>
+
+                <form id="orderForm" class="order-form">
+                    <fieldset class="field-group" aria-labelledby="size-group-label">
+                        <legend id="size-group-label">Size</legend>
+                        <div id="sizeOptions" class="size-grid"></div>
+                    </fieldset>
+
+                    <label class="field-label" for="quantityInput">Quantity</label>
+                    <input id="quantityInput" type="number" min="1" max="10" value="1" />
+
+                    <label class="field-label" for="paymentInput">Payment amount</label>
+                    <input id="paymentInput" type="number" min="0" step="0.25" value="0" />
+
+                    <div class="summary-card" aria-live="polite">
+                        <div class="summary-row">
+                            <span>Item total</span>
+                            <strong id="itemPrice">$0.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Quantity</span>
+                            <strong id="quantityLabel">1</strong>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Order total</span>
+                            <strong id="orderTotal">$0.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Payment due</span>
+                            <strong id="paymentDue">$0.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Change due</span>
+                            <strong id="changeDue">$0.00</strong>
+                        </div>
+                    </div>
+
+                    <button id="orderButton" type="button">Place order</button>
+                    <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+                </form>
+            </aside>
+        </main>
+
+        <section class="panel panel-secondary" aria-labelledby="history-heading">
+            <div class="panel-header">
+                <div>
+                    <p class="eyebrow">Session</p>
+                    <h2 id="history-heading">Order history</h2>
+                </div>
+                <p class="mini-caption">Stored locally for this demo session.</p>
+            </div>
+            <div class="session-grid">
+                <div class="resource-panel" aria-labelledby="resources-heading">
+                    <div class="panel-title">
+                        <p class="eyebrow">Resources</p>
+                        <h3 id="resources-heading">Supply tracker</h3>
+                    </div>
+                    <div class="resource-list" id="resourceList"></div>
+                </div>
+                <div class="history-panel" aria-labelledby="recent-heading">
+                    <div class="panel-title">
+                        <p class="eyebrow">Recent</p>
+                        <h3 id="recent-heading">Live order log</h3>
+                    </div>
+                    <ul id="historyList" class="history-list"></ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
