@@ -4,7 +4,7 @@ from services.menu import Menu
 from services.coffee_maker import CoffeeMaker
 from services.money_machine import MoneyMachine
 
-persistence.init_db()
+#persistence.init_db()
 menu = Menu()
 initial_state = persistence.load_resources()
 coffee_maker = CoffeeMaker(resources={
