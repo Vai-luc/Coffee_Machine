@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify, render_template
 from controllers import order_controller
 from services.menu import Menu
-from services import persistence
+#from services import persistence
 import logging
 
 # Configure logging
@@ -53,22 +53,23 @@ def order():
         if quantity < 1 or quantity > 10:
             raise ValueError
     except (TypeError, ValueError):
-        logging.warning(f"Order failed: invalid quantity {quantity}")
-        return jsonify({"status": "error", "message": "Quantity must be a whole number between 1 and 10."}), 400
+        return jsonify({"status": "error", "message": "Quantity must be 1 to 10."}), 400
 
     try:
         amount_paid = float(amount_paid)
     except (TypeError, ValueError):
-        logging.warning(f"Order failed: invalid payment amount {amount_paid}")
         return jsonify({"status": "error", "message": "Invalid payment amount."}), 400
 
-    result = order_controller.process_order(choice, amount_paid=amount_paid, size=size, quantity=quantity)
+    result = order_controller.process_order(
+        choice,
+        amount_paid=amount_paid,
+        size=size,
+        quantity=quantity
+    )
 
     if result.get("status") == "error":
-        logging.warning(f"Order failed: {result.get('message')}")
         return jsonify(result), 400
 
-    logging.info(f"Order successful: {result['drink']} x{result['quantity']} - Total: ${result['total']}, Change: ${result['change']}")
     return jsonify({
         "status": "success",
         "drink": result["drink"],
@@ -77,18 +78,17 @@ def order():
         "total": result["total"],
         "change": result["change"],
         "resources": order_controller.coffee_maker.report(),
-        "recent_orders": persistence.get_recent_orders(5)
+        "recent_orders": []
     }), 200
 
 
 @app.route("/session")
 def session_summary():
-    stats = persistence.get_order_stats()
     return jsonify({
         "status": "success",
-        "orders": stats["orders"],
-        "total_spent": stats["total_spent"],
-        "recent_orders": persistence.get_recent_orders(5),
+        "orders": 0,
+        "total_spent": 0,
+        "recent_orders": [],
         "resources": order_controller.coffee_maker.report()
     })
 
