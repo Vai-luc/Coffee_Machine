@@ -1,48 +1,82 @@
+from datetime import datetime
 from flask import Flask, request, jsonify, render_template
 from controllers import order_controller
-from [services.menu](http://services.menu) import Menu
+from services.menu import Menu
+from services import persistence
 import logging
+
 logging.basicConfig(
-    level=[logging.INFO](http://logging.INFO),
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
-app = Flask(__name__, static_folder="static", template_folder="templates")
+
+app = Flask(__name__, static_folder='static', template_folder='templates')
 menu = Menu()
+persistence.init_db()
+
 @app.route("/")
 def home():
     return render_template("index.html")
+
 @app.route("/reset", methods=["POST"])
 def reset():
     order_controller.reset_machine_state()
     return jsonify({"status": "success", "message": "Machine reset"})
+
 @app.route("/menu")
 def get_menu():
     return jsonify({
         "menu": menu.get_items(),
         "sizes": menu.sizes
     })
+
 @app.route("/order", methods=["POST"])
 def order():
-    data = request.get_json(silent=True) or {}
+    data = request.get_json() or {}
     choice = data.get("drink")
     size = data.get("size", "tall")
-    quantity = int(data.get("quantity", 1))
-    amount_paid = float(data.get("amount", 0))
-    result = order_controller.process_order(
-        choice,
-        amount_paid=amount_paid,
-        size=size,
-        quantity=quantity
-    )
-    return jsonify(result)
-@app.route("/session")
-def session_summary():
+    quantity = data.get("quantity", 1)
+    amount_paid = data.get("amount", 0)
+
+    if not choice:
+        return jsonify({"status": "error", "message": "Choose a drink to continue."}), 400
+
+    try:
+        quantity = int(quantity)
+        if quantity < 1 or quantity > 10:
+            raise ValueError
+    except (TypeError, ValueError):
+        return jsonify({"status": "error", "message": "Quantity must be between 1 and 10."}), 400
+
+    try:
+        amount_paid = float(amount_paid)
+    except (TypeError, ValueError):
+        return jsonify({"status": "error", "message": "Invalid payment amount."}), 400
+
+    result = order_controller.process_order(choice, amount_paid=amount_paid, size=size, quantity=quantity)
+
+    if result.get("status") == "error":
+        return jsonify(result), 400
+
     return jsonify({
         "status": "success",
-        "orders": 0,
-        "total_spent": 0,
-        "recent_orders": []
+        "drink": result["drink"],
+        "size": result["size"],
+        "quantity": result["quantity"],
+        "total": result["total"],
+        "change": result["change"],
+        "recent_orders": persistence.get_recent_orders(5)
+    }), 200
+
+@app.route("/session")
+def session_summary():
+    stats = persistence.get_order_stats()
+    return jsonify({
+        "status": "success",
+        "orders": stats["orders"],
+        "total_spent": stats["total_spent"],
+        "recent_orders": persistence.get_recent_orders(5)
     })
+
 if __name__ == "__main__":
-    [app.run](http://app.run)()
- "site is live just one issue my order history suppy tracker isnt working
+    app.run()
